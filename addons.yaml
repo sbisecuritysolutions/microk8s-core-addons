@@ -33,8 +33,11 @@ microk8s-addons:
 
     - name: "ingress"
       description: "Ingress controller for external access"
-      version: "3.6.2"
-      check_status: "ingressclass.networking.k8s.io/public"
+      version: "40.0.0-ea.3"
+      # The microk8s versions > 1.35 uses "kubectl get all --all-namespaces" with grep to check the services. This will not work in case of ingressclasses.
+      # - Ref: https://github.com/canonical/microk8s/compare/v1.34...v1.35#diff-cea8894ac12cb68765874a03fba91e79d22c596d86633886b5c02abe52829448
+      # The microk8s versions that we currently use are < 1.35 (localdev - 1.34, dev/test,prod - 1.29), so we use "pod/traefik" to check the status of ingress addon.
+      check_status: "pod/traefik"
       supported_architectures:
         - arm64
         - amd64
