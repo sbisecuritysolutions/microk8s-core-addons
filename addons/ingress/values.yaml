@@ -52,6 +52,8 @@ providers:
   kubernetesIngressNGINX: # https://github.com/traefik/traefik-helm-chart/issues/1712
     enabled: true
     proxyReadTimeout: 600 # https://github.com/traefik/traefik/blob/v3.7.0-ea.3/docs/content/reference/routing-configuration/kubernetes/ingress-nginx.md#timeout
+    # Ensures the Ingress status includes a LoadBalancer IP, which indicates successful provisioning.
+    publishStatusAddress: "127.0.0.1" # Matches the default used by the NGINX ingress controller in MicroK8s versions earlier than 1.35: https://github.com/canonical/microk8s-core-addons/blob/45d132e7214c3faf8e05e58ac092996e4f68a62e/addons/ingress/enable#L29
 
 # Create IngressClass 'traefik'
 ingressClass:
