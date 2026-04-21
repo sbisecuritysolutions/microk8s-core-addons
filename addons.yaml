@@ -33,8 +33,10 @@ microk8s-addons:
 
     - name: "ingress"
       description: "Ingress controller for external access"
-      version: "3.6.2"
-      check_status: "ingressclass.networking.k8s.io/public"
+      version: "40.0.0-ea.3"
+      # Use pod/traefik check: MicroK8s < 1.35 lacks ingressclass status support.
+      # - Ref: https://github.com/canonical/microk8s/compare/v1.34...v1.35#diff-cea8894ac12cb68765874a03fba91e79d22c596d86633886b5c02abe52829448
+      check_status: "pod/traefik"
       supported_architectures:
         - arm64
         - amd64
