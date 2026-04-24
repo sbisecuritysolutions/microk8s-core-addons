@@ -18,6 +18,16 @@ ports:
     hostPort: 443
     protocol: TCP
 
+# Enable dashboard
+api:
+  dashboard: true
+  insecure: true
+
+# Set log level
+logs:
+  general:
+    level: "DEBUG"
+
 # Enable Traefik dashboard
 ingressRoute:
   dashboard:
