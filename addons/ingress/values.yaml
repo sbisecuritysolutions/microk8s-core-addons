@@ -27,6 +27,8 @@ api:
 logs:
   general:
     level: "DEBUG"
+  access:
+    enabled: true
 
 # Enable Traefik dashboard
 ingressRoute:
