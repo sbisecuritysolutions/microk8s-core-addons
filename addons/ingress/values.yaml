@@ -78,3 +78,7 @@ extraObjects:
       name: nginx
     spec:
       controller: k8s.io/ingress-nginx # https://github.com/canonical/microk8s-core-addons/issues/381
+
+# Enable accesslogs - https://doc.traefik.io/traefik/reference/install-configuration/observability/logs-and-accesslogs/#accesslogs
+accessLog:
+  enabled: true
