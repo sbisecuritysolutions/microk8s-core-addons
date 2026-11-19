@@ -195,7 +195,7 @@ spec:
       terminationGracePeriodSeconds: 60
       serviceAccountName: nginx-ingress-microk8s-serviceaccount
       containers:
-      - image: ghcr.io/forkline/ingress-nginx/controller:$TAG
+      - image: ghcr.io/forkline/ingress-nginx/controller:$TAG@$DIGEST
         name: nginx-ingress-microk8s
         livenessProbe:
           httpGet:

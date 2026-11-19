@@ -26,6 +26,7 @@ echo "Enabling Ingress"
 ARCH=$(arch)
 # Forkline maintained ingress-nginx fork
 TAG="2026.11.18"
+DIGEST="sha256:4ed95cfe0e60ee76036a8e9ed70a29f8f95ac08fe262409efd656ee75c63a239"
 EXTRA_ARGS="- --publish-status-address=${PUBLISH_STATUS_ADDRESS:-127.0.0.1}"
 DEFAULT_CERT="- ' '"
 
@@ -37,6 +38,7 @@ fi
 
 declare -A map
 map[\$TAG]="$TAG"
+map[\$DIGEST]="$DIGEST"
 map[\$DEFAULT_CERT]="$DEFAULT_CERT"
 map[\$EXTRA_ARGS]="$EXTRA_ARGS"
 use_addon_manifest ingress/ingress apply "$(declare -p map)"
